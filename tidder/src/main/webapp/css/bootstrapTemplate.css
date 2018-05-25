@@ -1,25 +1,462 @@
-   /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-        .row.content {height: 1500px}
+/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+ul {
+	 /* list-style-image: url('http://dl1.cbsistatic.com/i/r/2017/07/26/e5b5301d-c110-4fdc-9434-26e6414e3a6f/thumbnail/64x64/147e8b3da070d61c0cf7b7534bc2d676/imgingest-3529522317414257963.png'); */ */
+   list-style-position: none;
+   list-style:none;
+}
+
+ul li div div img {
+	padding-top:40px;
+	padding-right:70px;
+	
+}
+.navbarRight {
+	    position: inherit;
+    right: 30px;
+}
 
 
-        /* Set gray background color and 100% height */
-        .sidenav {
-            background-color: #f1f1f1;
-            height: 100%;
-        }
+#navbar {
+background: rgba(51,51,51,0.3);
+  position: fixed;
+  top: -120px;
+  width: 100%;
+  display:flex;
+  transition: top 0.3s;
+}
+#navbar:first-of-type {
+	text-align:center;
+}
+#navbar p {
+	padding-top: 10px;
+}
 
-        /* Set black background color, white text and some padding */
-        footer {
-            background-color: #555;
-            color: white;
-            padding: 15px;
-        }
+#navbar a, #navbar span {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 8px;
+  text-decoration: none;
+  font-size: 16px;
+  height:auto;
+}
 
-        /* On small screens, set height to 'auto' for sidenav and grid */
-        @media screen and (max-width: 767px) {
-            .sidenav {
-                height: auto;
-                padding: 15px;
-            }
-            .row.content {height: auto;}
-        }
+#navbar a:hover, #navbar span:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.container-fluid {
+	width:120%;
+}
+.content {
+	overflow:hidden;
+}
+
+.text-inside-block {
+	text-align:center;
+	padding-top:5px;
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+	background-color: #333;
+	color:lavenderblush;
+	height:100%;
+}
+
+.sidenav a {
+	color:lavenderblush;
+}
+
+.content-area {
+	border: 1px solid black;
+	margin-top: 10px;
+	padding: 10px;
+}
+.sidenav:hover {
+	opacity:0.7;
+}
+
+.well {
+    color: lavenderblush;
+	    width: 80%;
+    font-size: larger;
+    background: rgba(245,245,245,0.5);
+}
+.addPostByUser input{
+	color:lavenderblush;
+	background-color:silver;
+}
+
+.addPostByUser input[type=text] {
+	color:#333;
+}
+
+.addPostByUser input:focus{
+	outline: 2px solid red;
+	border-color:border:1px solid linear-gradient(to right, #c31432 , #240b36);
+
+}
+
+.well:hover {
+	content: "";
+	opacity:0.9;
+}
+
+.animateOnHover:hover {
+animation-iteration-count:2;
+-webkit-animation-name: animateHover;
+-webkit-animation-duration:6s;	
+} 
+
+@keyframes animateHover {
+	33% {padding-left:150px; }
+	75% {padding-left:-100px;}
+	
+}
+
+
+.comment {
+	float: left;
+	position: relative;
+	border: none !important;
+	padding-bottom: 5%;
+}
+.comment  div div span {
+	background-color:silver;
+}
+/* 	.viewComment{
+          transition: all  0.5s;
+  background: lightblue;
+  height: 100px;
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+        	} */
+.viewComment {
+	border: 1px solid black;
+	margin-top: 10px;
+	padding: 10px;
+	background: yellow;
+}
+
+.mainPage {
+	color:lavenderblush;
+}
+
+.viewComment textarea {
+	width: 80%;
+}
+
+
+.glyphicon {
+	color:#333;
+	padding-top:5px;
+}
+.content {
+  
+  position: relative;
+}
+
+body {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  display: block;
+  background-image: url('https://i.stack.imgur.com/p9mUO.jpg');
+  background-repeat: no-repeat;
+    background-attachment: fixed;;
+  background-position:center;
+  background-size: cover;
+  
+  width: 80%;
+
+
+/*   -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px); */
+}
+
+body::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb
+{
+	background-color: #5c5c8a;	
+	background-image: -webkit-linear-gradient(90deg,
+	                                          rgba(255, 255, 255, .2) 25%,
+											  transparent 25%,
+											  transparent 50%,
+											  rgba(255, 255, 255, .2) 50%,
+											  rgba(255, 255, 255, .2) 75%,
+											  transparent 75%,
+											  transparent)
+}
+
+.loginPage {
+  margin: 10% 0 0 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  color:white;
+  opacity:0.8;
+  font-size:larger;
+}
+.loginPage a {
+	color: white;
+}
+
+
+.createAccountForm {
+	background-color:red;
+	height:100%;
+	text-align:right;
+	opacity:0.9;
+}
+.createAccountForm  form{
+	display:inline-table;
+	
+}
+.createAccountForm  form td{
+	text-align:left;
+	margin:5px 5px 5px 5px;
+}
+.haveFun {
+	margin-top:200px;
+	  -moz-filter: blur(0.8px);
+  -o-filter: blur(0.8px);
+  -ms-filter: blur(0.8px);
+  filter: blur(0.8px);
+}
+.sidenav:hover
+{
+    -webkit-animation: fadeInFromNone 0.5s ease-out;
+    -moz-animation: fadeInFromNone 0.5s ease-out;
+    -o-animation: fadeInFromNone 0.5s ease-out;
+    animation: fadeInFromNone 0.5s ease-out;
+      animation-fill-mode: forwards;  
+}
+
+@-webkit-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+/* Set black background color, white text and some padding */
+footer {
+	background-color: #555;
+	color: white;
+	padding: 8px;
+
+	left:50%;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+	.sidenav {
+		height: auto;
+		padding: 15px;
+	}
+	.row.content {
+		height: auto;
+	}
+}
+
+.commentVisible {
+	opacity: 0;
+		display:none;
+}
+
+
+/* when hiding the thing */
+.ng-hide-add{ 
+  -webkit-animation:0.5s lightSpeedOut ease; 
+  animation:0.5s lightSpeedOut ease; 
+}
+
+/* when showing the thing */
+.ng-hide-remove      { 
+
+  -webkit-animation:0.5s flipInX ease; 
+  animation:0.5s flipInX ease; 
+}
+
+/* ANIMATIONS (FROM ANIMATE.CSS) */
+
+/* flip in */
+@-webkit-keyframes flipInX {
+  0% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+  }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  }
+
+  100% {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
+@keyframes flipInX {
+  0% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    -ms-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    -ms-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+  }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    -ms-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    -ms-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  }
+
+  100% {
+    -webkit-transform: perspective(400px);
+    -ms-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
+/* light speed out */
+@-webkit-keyframes lightSpeedOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: translate3d(100%, 0, 0) skewX(30deg);
+    transform: translate3d(100%, 0, 0) skewX(30deg);
+    opacity: 0;
+  }
+}
+
+@keyframes lightSpeedOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: translate3d(100%, 0, 0) skewX(30deg);
+    -ms-transform: translate3d(100%, 0, 0) skewX(30deg);
+    transform: translate3d(100%, 0, 0) skewX(30deg);
+    opacity: 0;
+  }
+}

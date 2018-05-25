@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/security 
+		http://www.springframework.org/schema/security/spring-security.xsd">
+		
+	<http pattern="/css/**" security="none"/>
+	<http pattern="/js/**" security="none"/>
+	<http pattern="/scripts/**" security="none"/>
+	
+	<http auto-config="true" use-expressions="true">
+		<intercept-url pattern="/login.html" access="permitAll"/>
+		<intercept-url pattern="/createAccount.html" access="permitAll"/>
+		<intercept-url pattern="/loginFailed.html" access="permitAll"/>
+		<intercept-url pattern="/webapi/**" access="permitAll"/>
+		<intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
+		<form-login login-page="/login.html" 
+			username-parameter="email"
+			password-parameter="password" 
+			default-target-url="/index.html" 
+			authentication-failure-url="/loginFailed.html" />
+		<logout logout-success-url="/login.html" />
+		<csrf disabled="true" />
+	</http>
+	
+	<beans:bean id="customUserDetailsService" class="com.tidder.service.CustomUserDetailsService"/>
+	<beans:bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+		<beans:constructor-arg value="11"/>
+	</beans:bean>
+
+	<authentication-manager>
+		<authentication-provider user-service-ref="customUserDetailsService"> 
+			<password-encoder ref="passwordEncoder"/> 
+		</authentication-provider>
+	</authentication-manager>
+		
+</beans:beans>

@@ -10,7 +10,14 @@ public class Comment implements Serializable {
 	private String text;
 	private Date date;
 	private User user;
+	private int likes;
 	
+	public int getLikes() {
+		return likes;
+	}
+	public void setLikes(int likes) {
+		this.likes = likes;
+	}
 	public int getId() {
 		return id;
 	}

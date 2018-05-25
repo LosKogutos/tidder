@@ -12,9 +12,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.PostLoad;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
@@ -29,14 +34,25 @@ public class PostEntity {
 	private String topic;
 	@NotEmpty
 	private String text;
-	@NotEmpty
+	@NotNull
 	private Date date;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@Transient
+	private int totalLikes;
+	@PostLoad
+	public void onLoad() {
+		this.totalLikes = likes.size();
+	}
+	
+	@ManyToOne
 	@JoinColumn(name="UserId")
+	@Fetch(FetchMode.JOIN)
 	private UserEntity user;
 	
-	@OneToMany(mappedBy="post", cascade=CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="post", cascade=CascadeType.REMOVE, fetch=FetchType.EAGER)
+	private List<LikePostEntity> likes;
+	
+	@OneToMany(mappedBy="post", cascade=CascadeType.REMOVE)
 	private List<CommentEntity> comments;
 	
 	@Override
@@ -48,6 +64,18 @@ public class PostEntity {
 		return "Id: " + id + ", topic: " + topic + ", text: " + 
 				text + ", date: " + date.toString() + ", user: " + 
 				user.toString() + ", "+ commentsString.toString();
+	}
+	public int getTotalLikes() {
+		return totalLikes;
+	}
+	public void setTotalLikes(int totalLikes) {
+		this.totalLikes = totalLikes;
+	}
+	public List<LikePostEntity> getLikes() {
+		return likes;
+	}
+	public void setLikes(List<LikePostEntity> likes) {
+		this.likes = likes;
 	}
 	public List<CommentEntity> getComments() {
 		return comments;
@@ -61,7 +89,6 @@ public class PostEntity {
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	public String getTopic() {
 		return topic;
 	}
@@ -86,6 +113,4 @@ public class PostEntity {
 	public void setUser(UserEntity user) {
 		this.user = user;
 	}
-	
-
 }
